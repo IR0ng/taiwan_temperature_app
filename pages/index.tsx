@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
@@ -46,7 +45,10 @@ export default function Home() {
             <option value={'TAICHUNG'}>台中</option>
             <option value={'TAINAN'}>台南</option>
          </select>
-         {isLoading ? <ReactLoading className="border" type="spinningBubbles" color="black" height={25} width={25} /> : <button className="" onClick={() => callAPI({station: STATION[station]})}>查詢</button>}
+         {isLoading ? <ReactLoading type="spinningBubbles" color="black" height={25} width={25} /> : <button className="" onClick={() => callAPI({station: STATION[station]})}>查詢</button>}
+      </div>
+      <div>
+        總數: {data?.length}
       </div>
       <div className="flex-1 gap-1 flex flex-col border rounded-lg p-2 bg-gray-100">
         <div className="flex flex-row justify-around text-xl font-bold p-2 gap-3">
